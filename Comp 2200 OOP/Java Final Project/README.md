@@ -1,0 +1,1 @@
+This project is the final Java project in my Object-Orientated Programming class. It is a Swing-based program that uses the 3rd party library X-Chart to allow the user to generate Collatz sequences and visualize them using charts.
