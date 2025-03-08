@@ -1,0 +1,23 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python Debugger: Current File",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal"
+        },
+        {
+            "type": "debugpy",
+            "request": "launch",
+            "name": "Debug",
+            "program": "c:/Users/alexm/source/repos/Visual Studio Code projects/main.py",
+            "args": [],
+            "cwd": "c:/Users/alexm/source/repos/Visual Studio Code projects/"
+        }
+    ]
+}

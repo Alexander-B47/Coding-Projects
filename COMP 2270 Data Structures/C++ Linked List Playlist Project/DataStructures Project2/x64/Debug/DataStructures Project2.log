@@ -1,0 +1,4 @@
+﻿  PlayList.cpp
+C:\Users\alexm\source\repos\DataStructures Project2\DataStructures Project2\PlayList.cpp(29,31): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\alexm\source\repos\DataStructures Project2\DataStructures Project2\PlayList.cpp(42,35): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+  DataStructures Project2.vcxproj -> C:\Users\alexm\source\repos\DataStructures Project2\x64\Debug\DataStructures Project2.exe

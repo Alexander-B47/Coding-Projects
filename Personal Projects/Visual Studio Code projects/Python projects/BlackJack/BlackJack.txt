@@ -1,0 +1,64 @@
+# Name: [REDACTED]
+# Date: 2/11/25
+# Purpose: To be blackJack
+
+import random
+
+def buildDeck(deck):
+    for _ in range(4):
+        for i in range(1, 14):
+            deck.append(i)
+    return deck
+
+def dealCard(deck):
+    i = random.randint(0,len(deck))
+    return deck.pop(i)
+
+def addToHand(deck , hand):
+    i = dealCard(deck)
+    hand
+    hand.append(i)
+    return hand
+
+def sumHand(hand):
+    sum = 0
+    for i in range(len(hand)):
+        sum+= hand[i]
+    return sum
+
+def determineWinOrLose(player, dealer):
+    pSum = sumHand(player)
+    dSum = sumHand(dealer)
+
+    if(pSum > 21):
+        return 'l'
+    elif(dSum > 21):
+        return 'w'
+    elif(pSum > dSum):
+        return 'w'
+    elif(dSum > pSum):
+        return 'l'
+    else:
+        return 'c' # c for continue
+def main():
+    deck = []
+    deck = buildDeck(deck)
+    cont = 'c'
+    player = []
+    dealer = []
+    while cont == 'c':
+        player = addToHand(deck, player)
+        dealer = addToHand(deck, dealer)
+        print(" Game state: \nPlayer: " + str(player) + "\n")
+        choice = input("Deal another card? (y/n): ")
+        print("\n" + choice.capitalize())
+        if(choice.capitalize() == "N"):
+            cont = determineWinOrLose(player, dealer)
+        elif(choice.capitalize() == "Y"):
+            cont = determineWinOrLose(player, dealer)
+        else:
+            print("Invalid choice")
+        #print("\nDealer: " + str(dealer))
+        print("Continue status: " + cont)
+
+main()

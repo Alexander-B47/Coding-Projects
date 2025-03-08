@@ -1,0 +1,4 @@
+﻿  prog4.cpp
+C:\Users\alexm\source\repos\Project4 Data Structures\Project4 Data Structures\prog4.cpp(22,20): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\alexm\source\repos\Project4 Data Structures\Project4 Data Structures\prog4.cpp(37,21): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  Project4 Data Structures.vcxproj -> C:\Users\alexm\source\repos\Project4 Data Structures\x64\Debug\Project4 Data Structures.exe

@@ -1,0 +1,4 @@
+// Path filename = Path.of(first:"filename");
+    //password = Files.ReadString(filename);
+
+Test this out at some point.

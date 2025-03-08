@@ -1,0 +1,8 @@
+Name: Alex        
+Health: 120        
+Attack: 110        
+Defense: 82        
+Luck: 100        
+Speed: 1050        
+Level: 92        
+Experience: 200025

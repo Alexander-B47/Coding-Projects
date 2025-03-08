@@ -1,0 +1,22 @@
+{
+    "name": "Alex",
+    "health": 100,
+    "attack": 10,
+    "defense": 5,
+    "luck": 100,
+    "speed": 1000,
+    "level": 1,
+    "experience": 0,
+    "inventory": [
+        {
+            "rarity": "UNCOMMON",
+            "itemType": "SPELL",
+            "subType": "FIRE"
+        },
+        {
+            "rarity": "MYTHICAL",
+            "itemType": "WEAPON",
+            "subType": "DAGGER"
+        }
+    ]
+}
