@@ -8,20 +8,21 @@ from Character import Character
 from Stage import Stage
 from SavingDataNEW import SavingData
 from Item import Item
-from Enums import rarities, weaponTypes, armorTypes, potionTypes, spellTypes, itemTypes
+from Enums import rarities, weaponTypes, armorTypes, potionTypes, spellTypes, itemTypes , damageTypes
 from ItemsGroup import Weapon, Armor, Potion, Spell
 from Inventory import Inventory
+from Fight import StageFight
 
 def stageTest(character):
     stage1 = Stage(10, character)
-    print(str(stage1) + "\n")
-    stage1.displayEnemies()
+    return stage1
+    
 
 def inventoryTest(character):
     item = Weapon(rarities.RARE, weaponTypes.SWORD)
     item2 = Armor(rarities.RARE, armorTypes.HEAVY)
-    item3 = Potion(rarities.SPECIAL, potionTypes.DOT)
-    item4 = Spell(rarities.RARE, spellTypes.HEAL)
+    item3 = Potion(rarities.SPECIAL, potionTypes.DOT, damageType=damageTypes.MAGICAL)
+    item4 = Spell(rarities.RARE, spellTypes.HEAL, damageType=damageTypes.HEALING)
 
     inv = Inventory(character)
     inv.addItem(item)
@@ -49,16 +50,27 @@ def saveTest(character, inv):
     print(character2)
     print(inv2)
 
+def loadTest(fileName):
+    loadData = SavingData(fileName)
+    loadData.loadData()
+    return loadData.getInventory()
+
 # Character class note: the parameters are as follows:
 # name , health , attack , defense , luck , speed , level , experience
 def main():
     character = Character("Alex" , 100, 10, 5, 100, 1000, 1 , 0)
     inv = Inventory(character)
-    i = Spell(rarities.UNCOMMON, spellTypes.FIRE)
+    i = Spell(rarities.UNCOMMON, spellTypes.FIRE, damageType=damageTypes.MAGICAL)
     i2 = Weapon(rarities.MYTHICAL, weaponTypes.DAGGER)
     inv.addItem(i)
     inv.addItem(i2)
-    #inventoryTest(character) 
-    saveTest(character, inv)   
+
+    characterLoaded = loadTest("saveFile.json")
+    print(str(characterLoaded))
+
+    curStage = stageTest(characterLoaded.getCharacter())
+    curFight = StageFight(curStage, inv)
+    print(str(curStage) + "\n")
+    curFight.stageFight()
     
 main()

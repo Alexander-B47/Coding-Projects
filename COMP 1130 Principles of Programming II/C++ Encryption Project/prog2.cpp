@@ -6,6 +6,7 @@
 #include <iostream>
 #include <fstream>
 using namespace std;
+#include <cstring>
 
 const int SIZE = 1000;
 

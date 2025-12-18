@@ -1,9 +1,9 @@
 {
     "name": "Alex",
-    "health": 100,
-    "attack": 10,
+    "health": 1000,
+    "attack": 300,
     "defense": 5,
-    "luck": 100,
+    "luck": 1000,
     "speed": 1000,
     "level": 1,
     "experience": 0,
@@ -11,12 +11,14 @@
         {
             "rarity": "UNCOMMON",
             "itemType": "SPELL",
-            "subType": "FIRE"
+            "subType": "FIRE",
+            "damageType": "MAGICAL"
         },
         {
             "rarity": "MYTHICAL",
             "itemType": "WEAPON",
-            "subType": "DAGGER"
+            "subType": "DAGGER",
+            "damageType": "PHYSICAL"
         }
     ]
 }

@@ -13,7 +13,7 @@
 import json
 from Character import Character
 from Item import Item
-from Enums import itemTypes, rarities, weaponTypes, armorTypes, potionTypes, spellTypes
+from Enums import damageTypes, itemTypes, rarities, weaponTypes, armorTypes, potionTypes, spellTypes
 from ItemsGroup import Weapon, Armor, Spell, Potion
 from Inventory import Inventory
 
@@ -37,10 +37,11 @@ class SavingData:
             "experience": self.playerData.getExperience(),
             "inventory": [
                 {
-                    # Save the enums(rarity,itemType, and item-specific type) as strings
+                    # Save the enums(rarity,itemType,item-specific type, and damageType) as strings
                     "rarity": item.getRarity().name,
                     "itemType": item.getItemType().name,  
-                    "subType": item.getAdditionalAttributes().name
+                    "subType": item.getAdditionalAttributes().name,
+                    "damageType": item.getDamageType().name
                 }
                 for item in self.Inventory.getInventory()
             ]
@@ -60,6 +61,9 @@ class SavingData:
                                     data["defense"], data["luck"], data["speed"], 
                                     data["level"], data["experience"])
 
+        # Create Inventory Object using the loaded player
+        self.setInventory(Inventory(self.playerData))
+
         # Load Inventory
         for item_data in data["inventory"]:
             # Convert string back to Enum
@@ -67,16 +71,20 @@ class SavingData:
             rarity = rarities[item_data["rarity"]]
             if(itemType == itemTypes.WEAPON):
                 subType = weaponTypes[item_data["subType"]]
-                item = Weapon(rarity, subType )
+                damageType = damageTypes[item_data["damageType"]]
+                item = Weapon(rarity, subType, damageType )
             elif(itemType == itemTypes.ARMOR):
                 subType = armorTypes[item_data["subType"]]
-                item = Armor(rarity, subType)
+                damageType = damageTypes[item_data["damageType"]]
+                item = Armor(rarity, subType, damageType)
             elif(itemType == itemType.POTION):
                 subType = potionTypes[item_data["subType"]]
-                item = Potion(rarity, subType)
+                damageType = damageTypes[item_data["damageType"]]
+                item = Potion(rarity, subType, damageType)
             elif(itemType == itemType.SPELL):
                 subType = spellTypes[item_data["subType"]]
-                item = Spell(rarity, subType)
+                damageType = damageTypes[item_data["damageType"]]
+                item = Spell(rarity, subType, damageType)
             else:
                 item = Item(rarity, itemType)
             self.Inventory.addItem(item)

@@ -1,5 +1,5 @@
 # Name: Alexander Bordenet
-# Date: 2/4/2025
+# Date: 2/4/2025 - 12/15/25
 # Purpose: A simple RPG-type program that is to help me work on my Python skills.
 # This will be displayed to the console because I am not familiar with GUIs yet.
 # This will be the file that will contain all the enums for the game.
@@ -14,10 +14,13 @@ class classes(Enum):
     def __str__(self):
         return str(self.name)
 
+# Higher the number, the stronger the enemy type
 class enemyTypes(Enum):
-    GOBLIN = 1
-    SKELETON = 2
-    DEMON = 3
+    GOBLIN = 1 
+    SKELETON = 2 
+    DEMON = 3 
+    DRAGON = 4 
+    OUTER_BEING = 5 
 
     def __str__(self):
         return str(self.name)
@@ -72,6 +75,14 @@ class spellTypes(Enum):
     def __str__(self):
         return str(self.name)
     
+class damageTypes(Enum):
+    PHYSICAL = 1
+    MAGICAL = 2
+    HEALING = 3
+    SPECIAL = 4
+
+    def __str__(self):
+        return str(self.name)
 
 class rarities(Enum):
     COMMON = 1

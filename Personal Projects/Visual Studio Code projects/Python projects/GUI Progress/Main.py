@@ -21,7 +21,7 @@ def main():
     e2.grid(row=1, column=1)
 
 
-    #button = Button(root, text="Press Me!", width=25, command=root.destroy) # Makes a button in the Root(window)
+    button = Button(root, text="Press Me!", width=25, command=root.destroy).grid(row=2, column=0) # Makes a button in the Root(window)
                                                                             # Will Destroy(close) the window when pressed
     #button.pack() # I guess this means you "pack" it into the window?
 

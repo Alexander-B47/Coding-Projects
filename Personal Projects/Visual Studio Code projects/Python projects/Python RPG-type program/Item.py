@@ -19,7 +19,10 @@ class Item:
     def __str__(self):
         return str(self.rarity) + " " + str(self.getItemType())
     
-    def getAdditionalAttributes(Self):
+    def getAdditionalAttributes(Self): # Polymorphism
+        return {}
+    
+    def getDamageType(self): # Polymorphism
         return {}
 
     def setItemType(self, itemType):

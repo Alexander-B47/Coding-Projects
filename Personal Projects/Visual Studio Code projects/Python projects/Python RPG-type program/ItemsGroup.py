@@ -10,13 +10,13 @@
 #TODO: Give each item its own methods like attack, drink, etc
 
 from Item import Item
-from Enums import weaponTypes, armorTypes, potionTypes, spellTypes, specialTypes
+from Enums import weaponTypes, armorTypes, potionTypes, spellTypes, specialTypes , damageTypes
 
 class Weapon(Item):
 
-    def __init__(self, rarity, weaponType):
+    def __init__(self, rarity, weaponType, damageType = damageTypes.PHYSICAL):
         super().__init__(rarity, 1)
-        #self.damageType = damageType
+        self.damageType = damageTypes(damageType)
         self.weaponType = weaponTypes(weaponType)
 
     def __str__(self):
@@ -24,6 +24,12 @@ class Weapon(Item):
     
     def getAdditionalAttributes(self):
         return self.weaponType
+    
+    def getDamageType(self):
+        return self.damageType
+
+    def setDamageType(self, damageType):
+        self.damageType = damageTypes(damageType)
     
     def setWeaponType(self, weaponType):
         self.weaponType = weaponTypes(weaponType)
@@ -33,9 +39,9 @@ class Weapon(Item):
     
 class Armor(Item):
 
-    def __init__(self, rarity, ArmorType):
+    def __init__(self, rarity, ArmorType, damageType = damageTypes.PHYSICAL):
         super().__init__(rarity, 2)
-        #self.damageType = damageType
+        self.damageType = damageTypes(damageType)
         self.armorType = armorTypes(ArmorType)
 
     def __str__(self):
@@ -43,6 +49,12 @@ class Armor(Item):
     
     def getAdditionalAttributes(self):
         return self.armorType
+    
+    def getDamageType(self):
+        return self.damageType
+    
+    def setDamageType(self, damageType):
+        self.damageType = damageTypes(damageType)
 
     def setArmorType(self, armorType):
         self.armorType = armorTypes(armorType)
@@ -52,9 +64,9 @@ class Armor(Item):
 
 class Potion(Item):
     
-    def __init__(self, rarity, PotionType):
+    def __init__(self, rarity, PotionType, damageType):
         super().__init__(rarity, 3)
-        #self.damageType = damageType
+        self.damageType = damageTypes(damageType) # Can be healing or magical, not physical
         self.potionType = potionTypes(PotionType)
 
     def __str__(self):
@@ -62,6 +74,12 @@ class Potion(Item):
     
     def getAdditionalAttributes(self):
         return self.potionType
+    
+    def getDamageType(self):
+        return self.damageType
+    
+    def setDamageType(self, damageType):
+        self.damageType = damageTypes(damageType)
 
     def setPotionType(self, PotionType):
         self.potionType = potionTypes(PotionType)
@@ -70,9 +88,9 @@ class Potion(Item):
         return self.potionType
 
 class Spell(Item):
-    def __init__(self, rarity, SpellType):
+    def __init__(self, rarity, SpellType, damageType):
         super().__init__(rarity, 4)
-        #self.damageType = damageType
+        self.damageType = damageTypes(damageType) # Can be healing or magical, not physical
         self.spellType = spellTypes(SpellType)
 
     def __str__(self):
@@ -80,6 +98,12 @@ class Spell(Item):
     
     def getAdditionalAttributes(self):
         return self.spellType
+    
+    def getDamageType(self):
+        return self.damageType
+
+    def setDamageType(self, damageType):
+        self.damageType = damageTypes(damageType)
 
     def setSpellType(self, spellType):
         self.spellType =  spellTypes(spellType)

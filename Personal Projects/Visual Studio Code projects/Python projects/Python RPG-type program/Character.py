@@ -12,6 +12,8 @@
 # The character that the inventory is for by passing a Character object into it.
 # Will allow for just importing Inventory because it keeps a copy of the Character inside of it.
 
+from LevelCalc import LevelCalc
+
 # Character Class
 class Character:
     
@@ -39,7 +41,11 @@ class Character:
     
     # Level-up calculator
     def levelUp(self):
-        pass #TODO
+        newLevel = LevelCalc.level_up(self.getExperience(), self.getLevel())
+        if newLevel > self.getLevel():
+            print(f"{self.getName()} has leveled up to level {newLevel}!")
+            self.setExperience(0) # Reset experience after leveling up
+        self.setLevel(newLevel)
 
     # Setters and Getters
     def setName(self, name):
